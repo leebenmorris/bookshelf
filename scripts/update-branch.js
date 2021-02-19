@@ -1,4 +1,4 @@
-const {updateExerciseBranch, spawnSync} = require('./utils')
+const { updateExerciseBranch, spawnSync } = require('./utils')
 
 process.env.HUSKY_SKIP_HOOKS = 1
 

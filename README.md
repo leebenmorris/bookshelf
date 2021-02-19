@@ -31,19 +31,15 @@
 
 ## Prerequisites
 
-- You'll want experience with React before going through this material. The
-  lessons get progressively more advanced. Once you hit something you're
-  unfamiliar with, that's your cue to go back and review the other parts of
-  EpicReact.Dev.
+-   You'll want experience with React before going through this material. The lessons get progressively more advanced. Once you hit something you're unfamiliar with, that's your cue to go back and review the other parts of EpicReact.Dev.
 
 ## System Requirements
 
-- [git][git] v2.13 or greater
-- [NodeJS][node] `^10.13 || 12 || 14`
-- [npm][npm] v6 or greater
+-   [git][git] v2.13 or greater
+-   [NodeJS][node] `^10.13 || 12 || 14`
+-   [npm][npm] v6 or greater
 
-All of these must be available in your `PATH`. To verify things are set up
-properly, you can run this:
+All of these must be available in your `PATH`. To verify things are set up properly, you can run this:
 
 ```shell
 git --version
@@ -51,18 +47,13 @@ node --version
 npm --version
 ```
 
-If you have trouble with any of these, learn more about the PATH environment
-variable and how to fix it here for [windows][win-path] or
-[mac/linux][mac-path].
+If you have trouble with any of these, learn more about the PATH environment variable and how to fix it here for [windows][win-path] or [mac/linux][mac-path].
 
 ## Setup
 
-> If you want to commit and push your work as you go, you'll want to
-> [fork](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
-> first and then clone your fork rather than this repo directly.
+> If you want to commit and push your work as you go, you'll want to [fork](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo) first and then clone your fork rather than this repo directly.
 
-After you've made sure to have the correct things (and versions) installed, you
-should be able to just run a few commands to get set up:
+After you've made sure to have the correct things (and versions) installed, you should be able to just run a few commands to get set up:
 
 ```
 git clone https://github.com/kentcdodds/bookshelf.git
@@ -72,31 +63,22 @@ node setup
 
 This may take a few minutes.
 
-If you get any errors, please read through them and see if you can find out what
-the problem is. If you can't work it out on your own then please [file an
-issue][issue] and provide _all_ the output from the commands you ran (even if
-it's a lot).
+If you get any errors, please read through them and see if you can find out what the problem is. If you can't work it out on your own then please [file an issue][issue] and provide _all_ the output from the commands you ran (even if it's a lot).
 
-If you can't get the setup script to work, then just make sure you have the
-right versions of the requirements listed above, and run the following commands:
+If you can't get the setup script to work, then just make sure you have the right versions of the requirements listed above, and run the following commands:
 
 ```
 npm install
 npm run validate
 ```
 
-If you are still unable to fix issues and you know how to use Docker 🐳 you can
-setup the project with the following command:
+If you are still unable to fix issues and you know how to use Docker 🐳 you can setup the project with the following command:
 
 ```
 docker-compose up
 ```
 
-It's recommended you run everything locally in the same environment you work in
-every day, but if you're having issues getting things set up, you can also set
-this up using [GitHub Codespaces](https://github.com/features/codespaces)
-([video demo](https://www.youtube.com/watch?v=gCoVJm3hGk4)) or
-[Codesandbox](https://codesandbox.io/s/github/kentcdodds/bookshelf).
+It's recommended you run everything locally in the same environment you work in every day, but if you're having issues getting things set up, you can also set this up using [GitHub Codespaces](https://github.com/features/codespaces) ([video demo](https://www.youtube.com/watch?v=gCoVJm3hGk4)) or [Codesandbox](https://codesandbox.io/s/github/kentcdodds/bookshelf).
 
 ## Running the app
 
@@ -106,11 +88,9 @@ To get the app up and running (and really see if it worked), run:
 npm start
 ```
 
-This should start up your browser. If you're familiar, this is a standard
-[react-scripts](https://create-react-app.dev/) application.
+This should start up your browser. If you're familiar, this is a standard [react-scripts](https://create-react-app.dev/) application.
 
-You can also open the production deployment:
-[bookshelf.lol](https://bookshelf.lol).
+You can also open the production deployment: [bookshelf.lol](https://bookshelf.lol).
 
 ## Running the tests
 
@@ -118,11 +98,7 @@ You can also open the production deployment:
 npm test
 ```
 
-This will start [Jest](https://jestjs.io/) in watch mode. Read the output and
-play around with it. The tests are there to help you reach the final version,
-however _sometimes_ you can accomplish the task and the tests still fail if you
-implement things differently than I do in my solution, so don't look to them as
-a complete authority.
+This will start [Jest](https://jestjs.io/) in watch mode. Read the output and play around with it. The tests are there to help you reach the final version, however _sometimes_ you can accomplish the task and the tests still fail if you implement things differently than I do in my solution, so don't look to them as a complete authority.
 
 ## Working through the exercises
 
@@ -132,83 +108,66 @@ To get started, run:
 node go
 ```
 
-This will allow you to choose which exercise you want to work on. From there,
-open the `INSTRUCTIONS.md` file and follow the instructions.
+This will allow you to choose which exercise you want to work on. From there, open the `INSTRUCTIONS.md` file and follow the instructions.
 
-If you'd like to work on an extra credit, but you want to skip the preceding
-steps, you can run `node go` again:
+If you'd like to work on an extra credit, but you want to skip the preceding steps, you can run `node go` again:
 
 ```shell
 node go
 ```
 
-This will let you choose the next exercise or you can choose which part of the
-exercise you'd like to work on. This will update your `exercise` files to the
-correct version for you to work on that extra credit.
+This will let you choose the next exercise or you can choose which part of the exercise you'd like to work on. This will update your `exercise` files to the correct version for you to work on that extra credit.
 
 ### Exercises
 
-The exercises are in different branches. Each branch changes the
-`INSTRUCTIONS.md` file to contain instructions you need to complete the
-exercise.
+The exercises are in different branches. Each branch changes the `INSTRUCTIONS.md` file to contain instructions you need to complete the exercise.
 
-The purpose of the exercise is **not** for you to work through all the material.
-It's intended to get your brain thinking about the right questions to ask me as
-_I_ walk through the material.
+The purpose of the exercise is **not** for you to work through all the material. It's intended to get your brain thinking about the right questions to ask me as _I_ walk through the material.
 
 ### Helpful Emoji 🐨 💪 🏁 💰 💯 🦉 📜 💣 👨‍💼 🚨
 
-Each exercise has comments in it to help you get through the exercise. These fun
-emoji characters are here to help you.
+Each exercise has comments in it to help you get through the exercise. These fun emoji characters are here to help you.
 
-- **Kody the Koala** 🐨 will tell you when there's something specific you should
-  do
-- **Matthew the Muscle** 💪 will indicate that you're working with an exercise
-- **Chuck the Checkered Flag** 🏁 will indicate that you're working with a final
-  version
-- **Marty the Money Bag** 💰 will give you specific tips (and sometimes code)
-  along the way
-- **Hannah the Hundred** 💯 will give you extra challenges you can do if you
-  finish the exercises early.
-- **Olivia the Owl** 🦉 will give you useful tidbits/best practice notes and a
-  link for elaboration and feedback.
-- **Dominic the Document** 📜 will give you links to useful documentation
-- **Berry the Bomb** 💣 will be hanging around anywhere you need to blow stuff
-  up (delete code)
-- **Peter the Product Manager** 👨‍💼 helps us know what our users want
-- **Alfred the Alert** 🚨 will occasionally show up in the test failures with
-  potential explanations for why the tests are failing.
+-   **Kody the Koala** 🐨 will tell you when there's something specific you should do
+-   **Matthew the Muscle** 💪 will indicate that you're working with an exercise
+-   **Chuck the Checkered Flag** 🏁 will indicate that you're working with a final version
+-   **Marty the Money Bag** 💰 will give you specific tips (and sometimes code) along the way
+-   **Hannah the Hundred** 💯 will give you extra challenges you can do if you finish the exercises early.
+-   **Olivia the Owl** 🦉 will give you useful tidbits/best practice notes and a link for elaboration and feedback.
+-   **Dominic the Document** 📜 will give you links to useful documentation
+-   **Berry the Bomb** 💣 will be hanging around anywhere you need to blow stuff up (delete code)
+-   **Peter the Product Manager** 👨‍💼 helps us know what our users want
+-   **Alfred the Alert** 🚨 will occasionally show up in the test failures with potential explanations for why the tests are failing.
 
 ### Workflow
 
-- Checkout the exercise branch
-- Read through the `INSTRUCTIONS.md`
-- Start exercise
-- Go through every mentioned file and follow the instructions from the emoji
-- We all come back together
-- I go through the solution and answer questions
-- Move on to the next exercise.
-- Repeat.
+-   Checkout the exercise branch
+-   Read through the `INSTRUCTIONS.md`
+-   Start exercise
+-   Go through every mentioned file and follow the instructions from the emoji
+-   We all come back together
+-   I go through the solution and answer questions
+-   Move on to the next exercise.
+-   Repeat.
 
 ### App Data Model
 
-- User
+-   User
 
-  - id: string
-  - username: string
+    -   id: string
+    -   username: string
 
-- List Item
+-   List Item
 
-  - id: string
-  - bookId: string
-  - ownerId: string
-  - rating: number (-1 is no rating, otherwise it's 1-5)
-  - notes: string
-  - startDate: number (`Date.now()`)
-  - finishDate: number (`Date.now()`)
+    -   id: string
+    -   bookId: string
+    -   ownerId: string
+    -   rating: number (-1 is no rating, otherwise it's 1-5)
+    -   notes: string
+    -   startDate: number (`Date.now()`)
+    -   finishDate: number (`Date.now()`)
 
-> For convenience, our friendly backend engineers also return a `book` object on
-> each list item which is the book it's associated to. Thanks backend folks!
+> For convenience, our friendly backend engineers also return a `book` object on each list item which is the book it's associated to. Thanks backend folks!
 
 > /me wishes we could use GraphQL
 
@@ -219,15 +178,15 @@ window.__bookshelf.purgeUsers()
 window.__bookshelf.purgeListItems()
 ```
 
-- Book
+-   Book
 
-  - id: string
-  - title: string
-  - author: string
-  - coverImageUrl: string
-  - pageCount: number
-  - publisher: string
-  - synopsis: string
+    -   id: string
+    -   title: string
+    -   author: string
+    -   coverImageUrl: string
+    -   pageCount: number
+    -   publisher: string
+    -   synopsis: string
 
 ## Troubleshooting
 
@@ -266,8 +225,7 @@ git pull --all
 
 ## Contributors
 
-Thanks goes to these wonderful people
-([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -337,22 +295,18 @@ Thanks goes to these wonderful people
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the
-[all-contributors](https://github.com/kentcdodds/all-contributors)
-specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
 
 ## Workshop Feedback
 
-Each exercise has an Elaboration and Feedback link. Please fill that out after
-the exercise and instruction.
+Each exercise has an Elaboration and Feedback link. Please fill that out after the exercise and instruction.
 
-At the end of the workshop, please go to this URL to give overall feedback.
-Thank you!
+At the end of the workshop, please go to this URL to give overall feedback. Thank you!
 
-- Part 1: https://kcd.im/bra1-ws-feedback
-- Part 2: https://kcd.im/bra2-ws-feedback
-- Part 3: https://kcd.im/bra3-ws-feedback
-- Part 4: https://kcd.im/bra4-ws-feedback
+-   Part 1: https://kcd.im/bra1-ws-feedback
+-   Part 2: https://kcd.im/bra2-ws-feedback
+-   Part 3: https://kcd.im/bra3-ws-feedback
+-   Part 4: https://kcd.im/bra4-ws-feedback
 
 <!-- prettier-ignore-start -->
 [npm]: https://www.npmjs.com/

@@ -6,7 +6,10 @@
 // export * from './index.extra-1'
 
 // 💯 Use `@reach/dialog`
-export * from './index.exercise.extra.1.lee'
+// export * from './index.exercise.extra.1.lee'
 
 // 💯 Create a LoginForm component
 // export * from './index.extra-2'
+
+// 💯 Create a LoginForm component
+export * from './index.exercise.extra.2.lee'

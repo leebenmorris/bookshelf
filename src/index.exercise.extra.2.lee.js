@@ -1,7 +1,5 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useState } from 'react'
 import ReactDom from 'react-dom'
-import { fromEvent, merge } from 'rxjs'
-import { filter } from 'rxjs/operators'
 import { Dialog } from '@reach/dialog'
 
 import { Logo } from './components/logo'
@@ -10,58 +8,13 @@ import '@reach/dialog/styles.css'
 
 const log = obj => console.log(JSON.stringify(obj, null, 4))
 
-const Form = ({ type, onClose }) => {
-    const usernameRef = useRef()
-    const passwordRef = useRef()
-
-    useEffect(() => {
-        const closeOnEscape = merge(
-            fromEvent(usernameRef.current, 'keydown'),
-            fromEvent(passwordRef.current, 'keydown'),
-        )
-            .pipe(filter(({ keyCode }) => keyCode === 27))
-            .subscribe(onClose)
-
-        return () => closeOnEscape.unsubscribe()
-    })
-
-    return (
-        <form
-            action="/send-form"
-            method="POST"
-            onSubmit={event => onSubmit(event, onClose)}
-            onClose={onClose}
-        >
-            <div>
-                <label htmlFor="Username">Username: </label>
-                <input
-                    ref={usernameRef}
-                    type="text"
-                    name="username"
-                    id="username"
-                    required
-                />
-            </div>
-            <div>
-                <label htmlFor="Password">Password: </label>
-                <input
-                    ref={passwordRef}
-                    type="password"
-                    name="password"
-                    id="password"
-                    required
-                />
-            </div>
-            <input type="submit" name="submit" value={type} />
-            <button onClick={onClose}>Cancel</button>
-        </form>
-    )
-}
-
-const onSubmit = (event, closeModal) => {
+const onSubmit = (event, closeModal, setIsSending, setErrorMessage) => {
     event.preventDefault()
 
     const timeDelay = 2000
+    const shouldSendError = true
+
+    setIsSending(true)
 
     const {
         target: {
@@ -85,7 +38,83 @@ const onSubmit = (event, closeModal) => {
         }),
     )
         .then(log)
+        .then(() => shouldSendError && Promise.reject(new Error('Ooops')))
         .then(closeModal)
+        .catch(err => {
+            setErrorMessage(err.message)
+            setIsSending(false)
+        })
+}
+
+const onKeyDown = (event, onClose) => {
+    event.code === 'Escape' && onClose()
+}
+
+const Form = ({ type, onClose }) => {
+    const [errorMessage, setErrorMessage] = useState(null)
+    const [isSending, setIsSending] = useState(false)
+
+    const styles = {
+        form: {
+            position: 'relative',
+            opacity: isSending ? 0.5 : 1.0,
+        },
+        waiting: {
+            position: 'absolute',
+            display: isSending ? 'block' : 'none',
+        },
+        error: {
+            display: errorMessage ? 'block' : 'none',
+        },
+    }
+
+    return (
+        <div>
+            <h2 style={styles.waiting}>Loading...</h2>
+            <h2 style={styles.error}>{errorMessage}</h2>
+            <form
+                style={styles.form}
+                action="/send-form"
+                method="POST"
+                onSubmit={event =>
+                    onSubmit(event, onClose, setIsSending, setErrorMessage)
+                }
+                onClose={onClose}
+            >
+                <div>
+                    <label htmlFor="Username">Username: </label>
+                    <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        required
+                        disabled={isSending}
+                        onKeyDown={event => onKeyDown(event, onClose)}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="Password">Password: </label>
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        required
+                        disabled={isSending}
+                        onKeyDown={event => onKeyDown(event, onClose)}
+                    />
+                </div>
+                <input
+                    type="submit"
+                    name="submit"
+                    value={type}
+                    disabled={isSending}
+                />
+                <button onClick={onClose} disabled={isSending}>
+                    Cancel
+                </button>
+            </form>
+        </div>
+    )
 }
 
 const ButtonAndForm = ({ type }) => {
@@ -96,14 +125,10 @@ const ButtonAndForm = ({ type }) => {
             <button onClick={() => setShowModal(true)}>{type}</button>
             <Dialog
                 isOpen={showModal}
-                aria-label={`${type} form`}
                 onDismiss={() => setShowModal(false)}
+                aria-label={`${type} form`}
             >
-                <Form
-                    onSubmit={onSubmit}
-                    type={type}
-                    onClose={() => setShowModal(false)}
-                />
+                <Form type={type} onClose={() => setShowModal(false)} />
             </Dialog>
         </div>
     )
